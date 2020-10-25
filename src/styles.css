@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+p {
+    font-family: Lato;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+  }
+  
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  /* css for table ,td th */
+.table{
+  background-image:url('https://img4.nbstatic.in/tr:w-500/5b757da34cedfd000ced0a27.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: sticky;
+  height:500px;
+  background-color: rgba(231, 233, 240, 0.384);
+  background-blend-mode: lighten;
+}
+.red{
+  color:#4143aa;
+  font-weight: 900;
+}
+.white{
+  color:white;
+  font-weight: 600;
+  background-color: #151E43;
+}
+.blue{
+  color:rgba(3, 3, 17, 0.877);
+  font-weight: 600;
+  /* background-color: #e83e8c; */
+}
+.status{
+  color:#f44336;
+  font-weight: 600;
+  background-color: white;
+}
+.text-primary{
+  font-size: x-large;
+  
+}
+
+
+/* css for content section in modal */
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid red;
+  border-radius: 0.3rem;
+  outline: 0;
+}
+/* css for modal header */
+.modal-header {
+  color:white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  background-color: #151E43;
+  border-bottom: 1px solid  #151E43;
+  border-top-left-radius: calc(.3rem - 1px);
+  border-top-right-radius: calc(.3rem - 1px);
+}
+
+   

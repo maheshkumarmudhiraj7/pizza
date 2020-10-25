@@ -1,0 +1,133 @@
+
+<div class="fluid-container">
+	<!-- displaying detailed section of order list in the form of table -->
+	<div class="table-responsive">
+		<div class="table-wrapper">
+			<table class="table table-dark table-hover table-bordered">
+				<thead class="white">
+					<tr>
+						<th>ID</th>
+						<th>Customer Name</th>
+						<th>Item Name</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Total</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr> 
+				</thead>
+				<tbody>
+					<tr *ngFor="let row of order">
+						<td class="red">{{ row.id }}</td>
+						<td class="blue">
+							<a data-toggle="modal" data-target="#exampleModal"  (click)="detailOrder(row.id)">
+								{{ row.cname }}								
+							</a>
+							 <marquee style="font-family: Lato; font-size: 10pt">Click On Customer Name For Order Details </marquee>
+	
+						</td>
+						<td class="blue">
+							<img src="https://tinyurl.com/y26ttqvd" height="40"/> {{ row.item }}
+							
+            
+            </td>
+						<td class="red">{{ row.quantity }}</td>
+						<td class="red">{{ row.uprice }}</td>
+						<td class="red">{{ row.quantity*row.uprice }}</td>
+						<td class="status">
+							<div *ngIf="row.status == 1">
+								<span class="status text-primary">&bull;</span> Received
+							</div>
+
+							<div *ngIf="row.status == 2">
+								<span class="status text-warning">&bull;</span> Preparing
+							</div>
+
+							<div *ngIf="row.status == 3">
+								<span class="status text-info">&bull;</span> Ready to Serve
+							</div>
+
+							<div *ngIf="row.status >= 4">
+								<span class="status text-success">&bull;</span> Complete
+							</div>
+
+						</td>
+						<td>
+							<a class="btn btn-sm btn-info" (click)="changeStatus(row.id, row.status)"
+								[attr.disabled]="row.status >= 4">Change Status</a>
+						</td>
+					</tr>
+				</tbody>
+			
+			</table>
+			<!-- End of table fro displaying list items -->
+
+		</div>
+	</div>
+
+	<!-- displaying alert regarding daily offers-->
+	<div class="fluid-container">
+		<div class="alert alert-danger alert-dismissible" role="alert">
+	  <button type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+	  <strong><i class="fa fa-warning"></i> TODAY OFFERS</strong> <marquee><p style="font-family: Impact; font-size: 18pt">Flat 50% off Jumbo Orders</p></marquee>
+	
+	 </div>
+		</div>
+	<!-- End of alert -->
+		
+</div>
+
+<!-- Modal  for displaying details of orders-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			
+		 Customer Name: {{ orderDetail?.cname }}
+		 <br>
+		 Item Name: {{ orderDetail?.item }}
+		 <br>
+		 Quantity:{{ orderDetail?.quantity }}
+		 <br>
+		 Price:{{ orderDetail?.uprice }} 
+		 <br>
+		Address:{{ orderDetail?.address }}
+
+<!-- {{ orderDetail?.quantity*row.uprice }} -->
+
+
+		  <!-- <div *ngIf="orderDetail?.status == 1">
+			<span class="status text-primary">&bull;</span> Received
+		</div>
+
+		<div *ngIf="orderDetail?.status == 2">
+			<span class="status text-warning">&bull;</span> Preparing
+		</div>
+
+		<div *ngIf="orderDetail?.status == 3">
+			<span class="status text-info">&bull;</span> Ready to Serve
+		</div>
+
+		<div *ngIf="orderDetail?.status >= 4">
+			<span class="status text-success">&bull;</span> Complete
+		</div> -->
+
+<!-- end of modal  -->
+
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+		  
+		</div>
+	  </div>
+	</div>
+  </div>
+
+
+
